@@ -1,32 +1,31 @@
 <template>
-  <q-layout view="lHh Lpr lFf">
+  <q-layout view="hHh Lpr fFf"> <!-- Be sure to play with the Layout demo on docs -->
+
+    <!-- (Optional) The Header -->
     <q-header elevated>
       <q-toolbar>
         <q-toolbar-title>
           NET Verses
+          <span class="text-caption">— by <strong>Unshifting Shadows</strong></span>
         </q-toolbar-title>
-
-        <div class="cursor-pointer" @click="link('http://netbible.org')">NET Bible</div>
       </q-toolbar>
     </q-header>
 
     <q-page-container>
+      <!-- This is where pages get injected -->
       <router-view />
     </q-page-container>
+
   </q-layout>
 </template>
 
 <script>
-import { openURL } from 'quasar'
-
 export default {
-  name: 'MainLayout',
+  // name: 'LayoutName',
 
   data () {
     return {
-      link (url) {
-        openURL(url)
-      }
+      leftDrawer: true
     }
   }
 }

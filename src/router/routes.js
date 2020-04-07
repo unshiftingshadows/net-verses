@@ -1,10 +1,22 @@
 
 const routes = [
+  { path: '/', redirect: '/front' },
   {
     path: '/',
     component: () => import('layouts/MainLayout.vue'),
     children: [
-      { path: '', component: () => import('pages/Index.vue') }
+      { path: 'front', component: () => import('pages/Front.vue') }
+    ],
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: '/',
+    component: () => import('layouts/Auth.vue'),
+    children: [
+      { path: 'login', component: () => import('pages/Login.vue') },
+      { path: 'signup', component: () => import('pages/Signup.vue') }
     ]
   }
 ]
